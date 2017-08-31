@@ -1,7 +1,4 @@
 development:
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   database: itransition_crowdfunding
-  username: root
-#  host: 127.0.0.1
-#  port: 3306
