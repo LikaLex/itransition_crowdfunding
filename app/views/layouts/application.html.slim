@@ -4,9 +4,43 @@ html
     title
       | ItransitionCrowdfunding
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag    'application', media: 'all'
+    = stylesheet_link_tag    "themes/#{user_theme}/theme", media: 'all'
+    = javascript_include_tag 'application'
   body
+    nav.navbar.navbar-default
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand href="#"  Brand
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a href="#"
+                | Link
+                span.sr-only (current)
+            li
+              a href="#"  Link
+            li.dropdown
+              a.dropdown-toggle aria-expanded="false" data-toggle="dropdown" href="#" role="button"
+                | Theme
+                span.caret
+              - if current_user
+                ul.dropdown-menu role="menu"
+                  - User.themes.keys.each do |theme|
+                    li
+                      = link_to(theme, change_theme_users_path(theme: theme), method: :patch)
+          form.navbar-form.navbar-left role="search"
+            .form-group
+              input.form-control placeholder="Search" type="text" /
+            button.btn.btn-default type="submit"  Submit
+          ul.nav.navbar-nav.navbar-right
+            li
+              a href="#"  Link
     p.notice
       = notice
     p.alert

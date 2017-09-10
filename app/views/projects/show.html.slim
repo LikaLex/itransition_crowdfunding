@@ -1,0 +1,5 @@
+= link_to 'Edit', edit_project_path(@project)
+.col-sm-11.col-xs-12.blog-content
+  h2.text-center= @project.title
+  h5.text-center= @project.created_at.strftime('%b %d, %Y')
+  div= raw @project.description

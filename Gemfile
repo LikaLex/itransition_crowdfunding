@@ -21,6 +21,10 @@ gem 'devise', '4.3.0'
 gem 'devise-bootstrapped', '0.1.1'
 gem 'letter_opener', '1.4.1'
 gem 'slim'
+gem 'commontator', '~> 4.11.1'
+gem 'simple_form', '~> 3.2'
+gem 'ckeditor', '~> 4.1'
+
 
 group :development, :test do
   gem 'pry-rails'
