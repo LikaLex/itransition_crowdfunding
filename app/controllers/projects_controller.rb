@@ -14,8 +14,7 @@ class ProjectsController < ApplicationController
   # Create action saves the project into database
   def create
     @project = Project.new(user: current_user)
-    #@project.user = current_user
-    if @project.save(project_params)
+    if @project.update(project_params)
       flash[:notice] = "Successfully created project!"
       redirect_to project_path(@project)
     else
@@ -41,6 +40,7 @@ class ProjectsController < ApplicationController
 
   # The show action renders the individual project after retrieving the the id
   def show
+    commontator_thread_show(@project)
   end
 
   # The destroy action removes the project permanently from the database

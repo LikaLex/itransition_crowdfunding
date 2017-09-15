@@ -1,0 +1,38 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>targeter:</b>
+  <%= @target.targeter %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @target.body %>
+</p>
+
+<!-- /projects/:project_id/targets/:id/edit -->
+<%= link_to 'Edit', edit_project_target_path(@target.project, @target) %> |
+<!-- /projects/:project_id/targets/ -->
+<%= link_to 'Back', project_targets_path(@target.project) %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @project.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @project.content %>
+</p>
+
+<!-- /projects/:project_id/targets/ -->
+<%= link_to 'targets', project_targets_path(@project) %> |
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

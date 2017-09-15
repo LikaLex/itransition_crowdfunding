@@ -1,0 +1,30 @@
+<h1>Listing targets</h1>
+
+<table>
+  <tr>
+    <th>targeter</th>
+    <th>Body</th>
+    <th>project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @targets.each do |target| %>
+      <tr>
+        <td><%= target.targeter %></td>
+        <td><%= target.body %></td>
+
+        <!-- /projects/:project_id/targets/:id -->
+        <td><%= link_to 'Show', [target.project, target] %></td>
+        <!-- /projects/:project_id/targets/:id/edit -->
+        <td><%= link_to 'Edit', edit_project_target_path(target.project, target)%></td>
+        <!-- /projects/:project_id/targets/:id -->
+        <td><%= link_to 'Destroy', [target.project, target], :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+  <% end %>
+</table>
+
+<br />
+
+<%= link_to 'New target', new_project_target_path %> <!-- /projects/:project_id/targets/new -->

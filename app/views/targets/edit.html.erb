@@ -1,0 +1,8 @@
+<h1>Editing target</h1>
+
+<%= render 'form' %>
+
+<!-- /projects/:project_id/targets/:id -->
+<%= link_to 'Show', [@target.project, @target] %> |
+<!-- /projects/:project_id/targets/ -->
+<%= link_to 'Back', project_target_path(@target.project) %>
