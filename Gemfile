@@ -32,7 +32,10 @@ gem 'jquery-rails'
 gem 'haml-rails'
 gem 'twitter-bootstrap-rails'
 
-gem "pundit"
+gem 'pundit'
+gem 'administrate'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 group :development, :test do

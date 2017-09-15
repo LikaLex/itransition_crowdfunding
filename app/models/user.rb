@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
 
   enum theme: %i(darkly journal united solar simplex superhero cerulean)
-  enum role: %i(admin)
+  enum role: %i(admin user)
 end
 
 

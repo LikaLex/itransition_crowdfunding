@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    resources :users
+    resources :projects
+    resources :targets
+
+    root to: "users#index"
+  end
+
   mount Ckeditor::Engine => '/ckeditor'
   mount Commontator::Engine => '/commontator'
 
