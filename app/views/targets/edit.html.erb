@@ -3,6 +3,6 @@
 <%= render 'form' %>
 
 <!-- /projects/:project_id/targets/:id -->
-<%= link_to 'Show', [@target.project, @target] %> |
+<%= link_to 'Show', @target %> |
 <!-- /projects/:project_id/targets/ -->
-<%= link_to 'Back', project_target_path(@target.project) %>
+<%= link_to 'Back', project_path(@target.project) %>

@@ -3,5 +3,27 @@
   h2.text-center= @project.title
   h5.text-center= @project.created_at.strftime('%b %d, %Y')
   div= raw @project.description
-.col-sm-11.col-xs-12.blog-content
+
+.col-sm-11.col-xs-12.targets
+  = link_to 'Create target', new_project_target_path(@project)
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th index
+        th title
+        th description
+        th price
+        th
+    tbody
+      - @project.targets.each do |target|
+        tr
+          td= target.id
+          td= target.title
+          td= target.description
+          td= target.price
+          td
+            = link_to 'Edit ', edit_target_path(target.id)
+            = link_to 'Destroy', target, method: :delete, data: { confirm: 'Are you sure?' }
+
+.col-sm-11.col-xs-12.comments
   = commontator_thread(@project)

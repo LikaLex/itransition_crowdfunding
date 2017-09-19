@@ -10,15 +10,38 @@ class TargetsController < ApplicationController
   end
 
   def create
-    @target = @project.targets.create(params[:target])
+    #@target = Target.new(user: current_user, project: find_project)
+    if @project.targets.create(target_params)
+      flash[:notice] = "Successfully created target!"
+      redirect_to @project
+    else
+      flash[:alert] = "Error creating new target!"
+      render :new
+    end
   end
 
+
   def update
+    if @target.update_attributes(target_params)
+      flash[:notice] = "Successfully updated target!"
+      redirect_to project_path(@target.project)
+    else
+      flash[:alert] = "Error updating target!"
+      render :edit
+    end
   end
 
   def destroy
     @target.destroy
+    if @target.destroy
+      flash[:notice] = "Successfully deleted target!"
+      redirect_to @target.project
+    else
+      flash[:alert] = "Error updating target!"
+    end
   end
+
+
 
   private
   def find_project
@@ -26,6 +49,12 @@ class TargetsController < ApplicationController
   end
 
   def find_target
-    @target = @project.targets.find(params[:id])
+    @target = Target.find(params[:id])
   end
+
+  def target_params
+
+    params.require(:target).permit(:title, :description, :price)
+  end
+
 end
