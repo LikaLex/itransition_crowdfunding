@@ -4,7 +4,12 @@ class ProjectsController < ApplicationController
 
   # Index action to render all projects
   def index
-    @projects = Project.all
+    @projects =
+      if params[:query].present?
+        Project.search(params[:query])
+      else
+        Project.all
+      end
   end
 
   # New action for creating project

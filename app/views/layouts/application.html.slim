@@ -32,9 +32,9 @@ html
                   - User.themes.keys.each do |theme|
                     li
                       = link_to(theme, change_theme_users_path(theme: theme), method: :patch)
-          form.navbar-form.navbar-left role="search"
+          = form_tag projects_path, class:'navbar-form navbar-left', role: "search", method: :get do
             .form-group
-              input.form-control placeholder="Search" type="text" /
+              input.form-control placeholder="Search" type="text" name="query"
             button.btn.btn-default type="submit"  Submit
           ul.nav.navbar-nav.navbar-right
             - if current_user

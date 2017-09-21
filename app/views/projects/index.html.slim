@@ -7,7 +7,7 @@
             = project.title
           h6
             .date= project.funding_deadline
-          = raw(project.description).truncate(358)
+          = raw(project.description).truncate(500)
         .text-center
           = link_to "READ MORE", project_path(project)
         br

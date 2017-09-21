@@ -1,4 +1,20 @@
 class Project < ApplicationRecord
+  include PgSearch
+
+  pg_search_scope(
+    :search,
+    against: %i(
+      description
+      title
+    ),
+    using: {
+      tsearch: {
+        tsvector_column: 'tsv',
+        prefix: true
+      }
+    }
+  )
+
   acts_as_commontable
 
   belongs_to :user
