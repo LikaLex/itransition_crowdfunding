@@ -1,6 +1,7 @@
 class TargetsController < ApplicationController
   before_action :find_project, only: [:new, :create]
   before_action :find_target, only: [:edit, :update, :destroy]
+  before_action :restrict_modification, only: [:edit, :update, :create, :new]
 
   def new
     @target = @project.targets.build
@@ -57,4 +58,11 @@ class TargetsController < ApplicationController
     params.require(:target).permit(:title, :description, :price)
   end
 
+  def restrict_modification
+    project = @project || @target.project
+    if project.finished?
+      redirect_to project
+      return
+    end
+  end
 end

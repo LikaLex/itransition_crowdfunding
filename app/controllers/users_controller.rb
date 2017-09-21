@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
 
-  def role?(role)
-    roles.any? { |r| r.name.underscore.to_sym == role }
+  def show
+    @user = User.find(params[:id])
   end
 end

@@ -1,7 +1,7 @@
-= link_to 'Edit', edit_project_path(@project)
+= link_to 'Edit', edit_project_path(@project) unless @project.finished?
 .col-sm-11.col-xs-12.blog-content
   h2.text-center= @project.title
-  h5.text-center= @project.created_at.strftime('%b %d, %Y')
+  h5.text-center= @project.funding_deadline.strftime('%b %d, %Y')
   div= raw @project.description
 
 .col-sm-11.col-xs-12.targets
@@ -13,6 +13,7 @@
         th title
         th description
         th price
+
         th
     tbody
       - @project.targets.each do |target|
@@ -21,9 +22,11 @@
           td= target.title
           td= target.description
           td= target.price
+
           td
-            = link_to 'Edit ', edit_target_path(target.id)
-            = link_to 'Destroy', target, method: :delete, data: { confirm: 'Are you sure?' }
+            - unless @project.finished?
+              = link_to 'Edit ', edit_target_path(target.id)
+              = link_to 'Destroy', target, method: :delete, data: { confirm: 'Are you sure?' }
 
 .col-sm-11.col-xs-12.comments
   = commontator_thread(@project)

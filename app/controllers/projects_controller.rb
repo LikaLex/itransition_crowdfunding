@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:edit, :update, :show, :delete]
+  before_action :restrict_modification, only: [:edit, :update]
 
   # Index action to render all projects
   def index
@@ -56,10 +57,17 @@ class ProjectsController < ApplicationController
   private
 
   def project_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project).permit(:title, :description, :funding_deadline)
   end
 
   def find_project
     @project = Project.find(params[:id])
+  end
+
+  def restrict_modification
+    if @project.finished?
+      redirect_to @project
+      return
+    end
   end
 end

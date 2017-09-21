@@ -26,6 +26,7 @@ gem 'simple_form', '~> 3.2'
 gem 'ckeditor', '~> 4.1'
 
 #gem 'ransack'
+gem "simple_calendar", "~> 2.0"
 gem 'i18n'
 gem 'russian', '~> 0.6.0'
 
@@ -37,6 +38,7 @@ gem 'pundit'
 gem 'administrate'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'bootstrap-datepicker-rails'
 
 
 group :development, :test do

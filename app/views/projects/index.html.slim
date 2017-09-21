@@ -6,8 +6,7 @@
           h2
             = project.title
           h6
-            = project.created_at.strftime('%b %d, %Y')
-        div
+            .date= project.funding_deadline
           = raw(project.description).truncate(358)
         .text-center
           = link_to "READ MORE", project_path(project)
