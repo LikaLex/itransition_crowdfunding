@@ -23,7 +23,7 @@ gem 'devise-bootstrapped', '0.1.1'
 gem 'letter_opener', '1.4.1'
 gem 'slim'
 gem 'commontator', '~> 4.11.1', git: 'git@github.com:jdugarte/commontator.git'
-gem 'simple_form', '~> 3.2'
+gem 'simple_form', '~> 5.0'
 gem 'ckeditor', '~> 4.1'
 
 #gem 'ransack'
