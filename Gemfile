@@ -12,18 +12,18 @@ gem 'rails', '~> 5.1.3'
 gem 'pg', '0.21.0'
 gem 'pg_search'
 # Use Puma as the app server
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
-gem 'devise', '4.3.0'
+gem 'devise', '4.7.1'
 gem 'devise-bootstrapped', '0.1.1'
 gem 'letter_opener', '1.4.1'
 gem 'slim'
 gem 'commontator', '~> 4.11.1', git: 'git@github.com:jdugarte/commontator.git'
-gem 'simple_form', '~> 3.2'
+gem 'simple_form', '~> 5.0'
 gem 'ckeditor', '~> 4.1'
 
 #gem 'ransack'
