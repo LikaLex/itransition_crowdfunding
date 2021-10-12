@@ -12,7 +12,7 @@ gem 'rails', '~> 5.1.3'
 gem 'pg', '0.21.0'
 gem 'pg_search'
 # Use Puma as the app server
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 5.5'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'sass-rails', '~> 5.0'
